@@ -150,13 +150,13 @@ module.exports.getRequestedGuideBookings = (req, res) => {
 
 
 module.exports.updateGuideReviewRatingTip = (req, res) => {
-  console.log(req.body);
   models.Booking.where({id: req.body.bookingId}).fetch()
   .then(fetchedModel => {
     fetchedModel.save({
       guide_review: req.body.guide_review,
       guide_rating: req.body.guide_rating,
-      tips: req.body.tips
+      tips: req.body.tips,
+      status: req.body.status
     })
     .then(result => {
       res.status(200).send();
@@ -177,7 +177,8 @@ module.exports.updateUserReviewRating = (req, res) => {
   .then(fetchedModel => {
     fetchedModel.save({
       user_review: req.body.user_review,
-      user_rating: req.body.user_rating
+      user_rating: req.body.user_rating,
+      status: req.body.status
     })
     .then(result => {
       res.status(200).send();
@@ -192,7 +193,6 @@ module.exports.updateUserReviewRating = (req, res) => {
     res.sendStatus(404);
   });   
 };
-
 
 module.exports.getLast5MinutesOfReviews = (callback) => {
   models.Booking.where('updated_at', '>', new Date(Date.now() - 300000000).toISOString()).fetchAll()
