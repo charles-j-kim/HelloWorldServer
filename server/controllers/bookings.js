@@ -3,9 +3,9 @@ const events = require('./events');
 
 module.exports.createBooking = (req, res) => {
   const tzoffset = 0;
-  const startDateHr = new Date(new Date(req.body.startDateHr).getTime() - tzoffset).toISOString();
-  const endDateHr = new Date(new Date(req.body.endDateHr).getTime() - tzoffset).toISOString();
-  console.log('availabilityId', req.body.availabilityId, req.body);
+  const startDateHr = new Date(Number(req.body.startDateHr)).toISOString();
+  const endDateHr = new Date(Number(req.body.endDateHr)).toISOString();
+  // console.log('availabilityId', req.body.availabilityId, req.body);
   models.User.where({facebook_id: req.body.travelerId}).fetch({columns: ['id']})
   .then(result => {
     models.User.where({facebook_id: req.body.guideFacebookId}).fetch({columns: ['id']})
