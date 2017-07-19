@@ -1,6 +1,7 @@
 # Localize
 
-Platform where tourists and local tour guides are seamlessly connected within a few taps on mobile device
+Platform where tourists and local tour guides are seamlessly connected within a few taps.
+This is API server to receive / respond to requests made via mobile devices.
 
 ## Team
 
