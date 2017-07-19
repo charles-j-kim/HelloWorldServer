@@ -1,6 +1,6 @@
-# Project Name
+# Localize
 
-The project description
+Platform where tourists and local tour guides are seamlessly connected within a few taps on mobile device
 
 ## Team
 
@@ -87,5 +87,3 @@ To run server: `yarn run start`
 To run tests: `yarn run test`
 
 To run your redis server for the session store `redis-server`
-
-q
